@@ -4,8 +4,8 @@ import 'package:macos_ui/src/library.dart';
 
 const _kDialogBorderRadius = BorderRadius.all(Radius.circular(12.0));
 const _kDefaultDialogConstraints = BoxConstraints(
-  minWidth: 260,
-  maxWidth: 260,
+  minHeight: 260,
+  maxHeight: 260,
 );
 
 /// A macOS-style AlertDialog.
@@ -144,7 +144,7 @@ class MacosAlertDialog extends StatelessWidget {
         borderRadius: _kDialogBorderRadius,
       ),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
         decoration: BoxDecoration(
           border: Border.all(
             width: 2,
@@ -161,10 +161,10 @@ class MacosAlertDialog extends StatelessWidget {
         ),
         child: ConstrainedBox(
           constraints: _kDefaultDialogConstraints,
-          child: Column(
+          child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(height: 20),
+              const SizedBox(width: 20),
               ConstrainedBox(
                 constraints: const BoxConstraints(
                   maxHeight: 64,
@@ -172,32 +172,32 @@ class MacosAlertDialog extends StatelessWidget {
                 ),
                 child: appIcon,
               ),
-              const SizedBox(height: 16),
+              const SizedBox(width: 16),
               DefaultTextStyle(
                 style: MacosTheme.of(context).typography.headline,
                 textAlign: TextAlign.center,
                 child: title,
               ),
-              const SizedBox(height: 10),
+              const SizedBox(width: 10),
               DefaultTextStyle(
                 textAlign: TextAlign.center,
                 style: MacosTheme.of(context).typography.headline,
                 child: message,
               ),
-              const SizedBox(height: 16),
+              const SizedBox(width: 16),
               if (secondaryButton == null) ...[
-                Row(
+                Column(
                   children: [
                     Expanded(child: primaryButton),
                   ],
                 ),
               ] else ...[
                 if (horizontalActions!) ...[
-                  Row(
+                  Column(
                     children: [
                       if (secondaryButton != null) ...[
                         Expanded(child: secondaryButton!),
-                        const SizedBox(width: 8.0),
+                        const SizedBox(height: 8.0),
                       ],
                       Expanded(
                         child: primaryButton,
@@ -205,17 +205,17 @@ class MacosAlertDialog extends StatelessWidget {
                     ],
                   ),
                 ] else ...[
-                  Column(
+                  Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Row(
+                      Column(
                         children: [
                           Expanded(child: primaryButton),
                         ],
                       ),
-                      const SizedBox(height: 8.0),
+                      const SizedBox(width: 8.0),
                       if (secondaryButton != null) ...[
-                        Row(
+                        Column(
                           children: [
                             Expanded(
                               child: secondaryButton!,
@@ -228,13 +228,13 @@ class MacosAlertDialog extends StatelessWidget {
                 ],
               ],
               if (suppress != null) ...[
-                const SizedBox(height: 16),
+                const SizedBox(width: 16),
                 DefaultTextStyle(
                   style: MacosTheme.of(context).typography.headline,
                   child: suppress!,
                 ),
               ],
-              const SizedBox(height: 16),
+              const SizedBox(width: 16),
             ],
           ),
         ),

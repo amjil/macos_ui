@@ -1,6 +1,7 @@
 import 'package:macos_ui/macos_ui.dart';
 // ignore: implementation_imports
 import 'package:macos_ui/src/library.dart';
+import 'package:mongol/mongol.dart';
 
 const dialogMessage =
     'Description text about this alert is shown here, explaining to users what the options underneath are about and what to do.';
@@ -56,13 +57,13 @@ class _DialogsPageState extends State<DialogsPage> {
                         context: context,
                         builder: (context) => MacosAlertDialog(
                           appIcon: const FlutterLogo(size: 64),
-                          title: const Text('Title'),
-                          message: const Text(dialogMessage),
+                          title: const MongolText('Title'),
+                          message: const MongolText(dialogMessage),
                           //horizontalActions: false,
                           primaryButton: PushButton(
                             controlSize: ControlSize.large,
                             onPressed: Navigator.of(context).pop,
-                            child: const Text('Label'),
+                            child: const MongolText('Label'),
                           ),
                         ),
                       ),
@@ -75,22 +76,22 @@ class _DialogsPageState extends State<DialogsPage> {
                         context: context,
                         builder: (context) => MacosAlertDialog(
                           appIcon: const FlutterLogo(size: 64),
-                          title: const Text('Title'),
-                          message: const Text(
+                          title: const MongolText('Title'),
+                          message: const MongolText(
                             dialogMessage,
-                            textAlign: TextAlign.center,
+                            textAlign: MongolTextAlign.center,
                           ),
                           //horizontalActions: false,
                           primaryButton: PushButton(
                             controlSize: ControlSize.large,
                             onPressed: Navigator.of(context).pop,
-                            child: const Text('Label'),
+                            child: const MongolText('Label'),
                           ),
                           secondaryButton: PushButton(
                             controlSize: ControlSize.large,
                             secondary: true,
                             onPressed: Navigator.of(context).pop,
-                            child: const Text('Label'),
+                            child: const MongolText('Label'),
                           ),
                         ),
                       ),
@@ -103,22 +104,22 @@ class _DialogsPageState extends State<DialogsPage> {
                         context: context,
                         builder: (context) => MacosAlertDialog(
                           appIcon: const FlutterLogo(size: 64),
-                          title: const Text('Title'),
-                          message: const Text(
+                          title: const MongolText('Title'),
+                          message: const MongolText(
                             dialogMessage,
-                            textAlign: TextAlign.center,
+                            textAlign: MongolTextAlign.center,
                           ),
                           horizontalActions: false,
                           primaryButton: PushButton(
                             controlSize: ControlSize.large,
                             onPressed: Navigator.of(context).pop,
-                            child: const Text('Label'),
+                            child: const MongolText('Label'),
                           ),
                           secondaryButton: PushButton(
                             controlSize: ControlSize.large,
                             secondary: true,
                             onPressed: Navigator.of(context).pop,
-                            child: const Text('Label'),
+                            child: const MongolText('Label'),
                           ),
                         ),
                       ),
@@ -131,22 +132,22 @@ class _DialogsPageState extends State<DialogsPage> {
                         context: context,
                         builder: (context) => MacosAlertDialog(
                           appIcon: const FlutterLogo(size: 64),
-                          title: const Text('Title'),
-                          message: const Text(
+                          title: const MongolText('Title'),
+                          message: const MongolText(
                             dialogMessage,
-                            textAlign: TextAlign.center,
+                            textAlign: MongolTextAlign.center,
                           ),
                           horizontalActions: false,
                           primaryButton: PushButton(
                             controlSize: ControlSize.large,
                             onPressed: Navigator.of(context).pop,
-                            child: const Text('Primary'),
+                            child: const MongolText('Primary'),
                           ),
                           secondaryButton: PushButton(
                             controlSize: ControlSize.large,
                             secondary: true,
                             onPressed: Navigator.of(context).pop,
-                            child: const Text('Secondary'),
+                            child: const MongolText('Secondary'),
                           ),
                           suppress: const DoNotNotifyRow(),
                         ),
@@ -187,7 +188,7 @@ class _DoNotNotifyRowState extends State<DoNotNotifyRow> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         MacosCheckbox(
@@ -196,8 +197,8 @@ class _DoNotNotifyRowState extends State<DoNotNotifyRow> {
             setState(() => suppress = value);
           },
         ),
-        const SizedBox(width: 8),
-        const Text('Don\'t ask again'),
+        const SizedBox(height: 8),
+        const MongolText('Don\'t ask again'),
       ],
     );
   }
