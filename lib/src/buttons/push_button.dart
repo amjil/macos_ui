@@ -6,26 +6,26 @@ import 'package:gradient_borders/gradient_borders.dart';
 import 'package:macos_ui/macos_ui.dart';
 import 'package:macos_ui/src/library.dart';
 
-const _kMiniButtonSize = Size(26.0, 11.0);
-const _kSmallButtonSize = Size(39.0, 14.0);
-const _kRegularButtonSize = Size(60.0, 18.0);
-const _kLargeButtonSize = Size(48.0, 26.0);
+const _kMiniButtonSize = Size(11.0, 26.0);
+const _kSmallButtonSize = Size(14.0, 39.0);
+const _kRegularButtonSize = Size(18.0, 60.0);
+const _kLargeButtonSize = Size(26.0, 48.0);
 
-const _kMiniButtonPadding = EdgeInsets.only(left: 6.0, right: 6.0, bottom: 1.0);
+const _kMiniButtonPadding = EdgeInsets.only(top: 6.0, bottom: 6.0, right: 1.0);
 const _kSmallButtonPadding = EdgeInsets.symmetric(
-  vertical: 1.0,
-  horizontal: 7.0,
+  vertical: 7.0,
+  horizontal: 1.0,
 );
 const _kRegularButtonPadding = EdgeInsets.only(
-  left: 8.0,
-  right: 8.0,
-  top: 1.0,
-  bottom: 4.0,
+  top: 8.0,
+  bottom: 8.0,
+  left: 1.0,
+  right: 4.0,
 );
 const _kLargeButtonPadding = EdgeInsets.only(
-  right: 8.0,
-  left: 8.0,
-  bottom: 1.0,
+  bottom: 8.0,
+  top: 8.0,
+  right: 1.0,
 );
 
 const _kMiniButtonRadius = BorderRadius.all(Radius.circular(2.0));
